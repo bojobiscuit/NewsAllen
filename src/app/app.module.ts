@@ -2,17 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LayoutComponent } from './layout/layout.component';
+import { NavbarComponent } from './parts/navbar/navbar.component';
+import { FooterComponent } from './parts/footer/footer.component';
+import { FoodComponent } from './pages/food/food.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    HomeComponent,
+    LayoutComponent,
+    NavbarComponent,
+    FooterComponent,
+    FoodComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [LayoutComponent]
 })
 export class AppModule { }
