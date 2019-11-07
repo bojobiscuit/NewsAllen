@@ -4,19 +4,23 @@
       <div>
         <h3>TODAY'S TRUCK</h3>
       </div>
-      <div class="truckImage" style="background-image: url('/assets/img/brunchholiday.jpg');">
-        <h2>Brunch Holiday</h2>
-      </div>
+      <a [routerLink]="['/food', truckToday.truckId]">
+        <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckToday.truckImageUrl + ')'}">
+          <h2>{{truckToday.truckName}}</h2>
+        </div>
+      </a>
     </div>
   </div>
   <div class="food-rightCol">
     <div class="foodNext">
       <div>
-        <h3>TOMORROW</h3>
+        <h3>{{truckNextDay}}</h3>
       </div>
-      <div class="truckImage" style="background-image: url('/assets/img/polish.jpg');">
-        <h2>Krystyna's</h2>
-      </div>
+      <a [routerLink]="['/food', truckNext.truckId]">
+        <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckNext.truckImageUrl + ')'}">
+          <h2>{{truckNext.truckName}}</h2>
+        </div>
+      </a>
     </div>
     <div class="foodOptions">
       <ul>
