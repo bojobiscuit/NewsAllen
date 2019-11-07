@@ -1,0 +1,42 @@
+h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;;
+}
+
+.truckSchedule {
+  border-top: 2px solid #333333;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.truckScheduleHeader,
+.truckScheduleRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26px;
+}
+
+.truckScheduleHeader {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.truckScheduleRow:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.truckScheduleRow div {
+  width: 100%;
+}
+
+.truckName {
+  flex: 5;
+}
+.truckDate {
+  flex: 2;
+}
+.truckType {
+  flex: 3;
+}

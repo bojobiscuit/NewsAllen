@@ -4,9 +4,9 @@
       <div>
         <h3>TODAY'S TRUCK</h3>
       </div>
-      <a [routerLink]="['/food', truckToday.truckId]">
-        <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckToday.truckImageUrl + ')'}">
-          <h2>{{truckToday.truckName}}</h2>
+      <a [routerLink]="['/food/trucks', truckToday.id]">
+        <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckToday.imageUrl + ')'}">
+          <h2>{{truckToday.name}}</h2>
         </div>
       </a>
     </div>
@@ -16,17 +16,17 @@
       <div>
         <h3>{{truckNextDay}}</h3>
       </div>
-      <a [routerLink]="['/food', truckNext.truckId]">
-        <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckNext.truckImageUrl + ')'}">
-          <h2>{{truckNext.truckName}}</h2>
+      <a [routerLink]="['/food/trucks', truckNext.id]">
+        <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckNext.imageUrl + ')'}">
+          <h2>{{truckNext.name}}</h2>
         </div>
       </a>
     </div>
     <div class="foodOptions">
       <ul>
-        <li>view schedule</li>
-        <li>view trucks</li>
-        <li>submit request</li>
+        <li><a [routerLink]="['/food/schedule']">view schedule</a></li>
+        <li><a [routerLink]="['/food/trucks']">view trucks</a></li>
+        <li><a [routerLink]="['/food/request']">submit request</a></li>
       </ul>
     </div>
   </div>

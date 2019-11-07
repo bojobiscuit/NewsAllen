@@ -10,6 +10,10 @@ import { FoodComponent } from './pages/food/food.component';
 import { MapComponent } from './pages/map/map.component';
 import { FeedbackComponent } from './pages/feedback/feedback.component';
 import { NewsComponent } from './pages/news/news.component';
+import { ScheduleComponent } from './pages/food/schedule/schedule.component';
+import { TruckComponent } from './pages/food/truck/truck.component';
+import { RequestComponent } from './pages/food/request/request.component';
+import { TruckListComponent } from './pages/food/truck-list/truck-list.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { NewsComponent } from './pages/news/news.component';
     MapComponent,
     FeedbackComponent,
     NewsComponent,
+    ScheduleComponent,
+    TruckComponent,
+    RequestComponent,
+    TruckListComponent,
   ],
   imports: [
     BrowserModule,

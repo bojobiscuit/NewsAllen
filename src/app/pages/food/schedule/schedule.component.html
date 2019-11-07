@@ -1,0 +1,13 @@
+<h2>Truck Schedule</h2>
+<div class="truckSchedule">
+  <div class="truckScheduleHeader">
+    <div class="truckName">Name</div>
+    <div class="truckDate">Date</div>
+    <div class="truckType">Type</div>
+  </div>
+  <a class="truckScheduleRow" *ngFor="let truck of trucks" [routerLink]="['/food/trucks/', truck.id]">
+    <div class="truckName">{{truck.name}}</div>
+    <div class="truckDate">{{truck.getDateYo()}}</div>
+    <div class="truckType">{{truck.type}}</div>
+  </a>
+</div>

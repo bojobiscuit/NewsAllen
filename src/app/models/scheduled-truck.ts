@@ -1,31 +1,39 @@
 export class ScheduledTruck {
 
-    constructor(date: Date, truckId: number, truckName: string, truckImageUrl: string) {
+    date: Date;
+    id: number;
+    name: string;
+    type: string;
+    imageUrl: string;
+
+    constructor(date: Date, id: number, name: string, type: string, url: string) {
         this.date = date;
-        this.truckId = truckId;
-        this.truckName = truckName;
-        this.truckImageUrl = truckImageUrl;
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.imageUrl = url;
     }
 
-    date: Date;
-    truckId: number;
-    truckName: string;
-    truckImageUrl: string;
+    getDateYo() {
+        return ScheduledTruck.months[this.date.getMonth() - 1] + " " + this.date.getDate();
+    }
 
     getDateText() {
         if (this.isTomorrow()) {
             return "TOMORROW";
         }
         else {
-            var days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
-            return days[this.date.getDay()];
+            return ScheduledTruck.days[this.date.getDay()];
         }
     }
+
+    static readonly months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'nov', 'Dec'];
+    static readonly days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
 
     private isTomorrow = () => {
         // var today = new Date();
         // var tomorrow = new Date();
-        
+
         // TODO: 11/6 date used for debugging
         var today = new Date(2019, 11, 6);
         var tomorrow = new Date(2019, 11, 6);

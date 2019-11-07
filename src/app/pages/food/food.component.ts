@@ -19,12 +19,14 @@ export class FoodComponent implements OnInit {
       new Date(2019, 11, 6),
       99,
       "Brunch Holiday",
+      null,
       "/assets/img/brunchholiday.jpg"
     );
     this.truckNext = new ScheduledTruck(
       new Date(2019, 11, 7),
       101,
       "Krystyna's",
+      null,
       "/assets/img/polish.jpg"
     );
     this.truckNextDay = this.truckNext.getDateText();
