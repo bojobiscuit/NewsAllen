@@ -1,0 +1,62 @@
+#foodIndex {
+  display: flex;
+}
+
+#foodIndex > .food-leftCol {
+  flex: 2;
+  margin-right: 20px;
+}
+#foodIndex > .food-rightCol {
+  flex: 1;
+}
+#foodIndex .food-rightCol > div:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+#foodIndex h2 {
+  display: inline-block;
+  color: #ddd;
+}
+
+#foodIndex h3 {
+  font-size: 26px;
+  font-style: italic;
+  padding: 7px;
+}
+
+#foodIndex .truckImage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#foodIndex .foodToday .truckImage {
+  min-height: 400px;
+}
+
+// today truck title
+#foodIndex .foodToday h2 {
+  background: #4caf4fe7;
+  padding: 15px;
+  font-size: 48px;
+}
+
+// coming up truck image
+#foodIndex .foodNext .truckImage {
+  min-height: 150px;
+}
+
+// coming up truck titles
+#foodIndex .foodNext h2 {
+  background: #007a83e7;
+  padding: 10px;
+  font-size: 30px;
+}
+
+// Options
+#foodIndex .foodOptions {
+  font-size: 40px;
+}
+#foodIndex .foodOptions li:not(:last-child) {
+  margin-bottom: 10px;
+}

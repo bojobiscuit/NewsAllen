@@ -7,6 +7,9 @@ import { LayoutComponent } from './layout/layout.component';
 import { NavbarComponent } from './parts/navbar/navbar.component';
 import { FooterComponent } from './parts/footer/footer.component';
 import { FoodComponent } from './pages/food/food.component';
+import { MapComponent } from './pages/map/map.component';
+import { FeedbackComponent } from './pages/feedback/feedback.component';
+import { NewsComponent } from './pages/news/news.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,9 @@ import { FoodComponent } from './pages/food/food.component';
     NavbarComponent,
     FooterComponent,
     FoodComponent,
+    MapComponent,
+    FeedbackComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,
