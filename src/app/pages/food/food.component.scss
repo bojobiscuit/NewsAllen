@@ -31,7 +31,7 @@
 }
 
 #foodIndex .foodToday .truckImage {
-  min-height: 300px;
+  min-height: 200px;
   width: 100%;
   padding-bottom: 25%;
 }
@@ -61,4 +61,34 @@
 }
 #foodIndex .foodOptions li:not(:last-child) {
   margin-bottom: 10px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  #foodIndex {
+    flex-direction: column;
+  }
+
+  #foodIndex > .food-leftCol {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  #foodIndex > .food-rightCol {
+    display: flex;
+    align-items: center;
+  }
+
+  #foodIndex .foodNext {
+    flex: 1;
+  }
+
+  #foodIndex .foodOptions {
+    flex: 1;
+    text-align: center;
+  }
+
+  #foodIndex .food-rightCol > div:not(:last-child) {
+    margin-bottom: 0px;
+  }
 }

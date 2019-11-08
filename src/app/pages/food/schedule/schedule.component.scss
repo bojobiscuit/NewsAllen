@@ -7,36 +7,30 @@ h2 {
 .truckSchedule {
   border-top: 2px solid #333333;
   padding: 20px;
-  max-width: 600px;
+  max-width: 400px;
+  min-width: 280px;
   margin: auto;
 }
 
-.truckScheduleHeader,
 .truckScheduleRow {
   display: flex;
-  justify-content: space-between;
-  font-size: 26px;
-}
-
-.truckScheduleHeader {
-  font-weight: bold;
-  margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .truckScheduleRow:not(:last-child) {
   margin-bottom: 10px;
 }
 
-.truckScheduleRow div {
-  width: 100%;
-}
-
 .truckName {
-  flex: 5;
+  font-style: oblique;
 }
 .truckDate {
-  flex: 2;
+  width: 70px;
 }
-.truckType {
-  flex: 3;
+
+@media only screen and (max-width: 768px) {
+  .truckSchedule {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

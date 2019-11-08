@@ -4,12 +4,7 @@
 
 #truckInfo h2 {
   font-size: 40px;
-  margin-bottom: 10px;
-}
-
-#truckInfo h3 {
-  font-size: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 #truckInfo .truckDetails div {
@@ -28,4 +23,19 @@
   background-size: cover;
   padding-bottom: 50%;
   margin-left: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  #truckInfo {
+    flex-direction: column;
+  }
+
+  #truckInfo .truckDetails {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #truckInfo .truckImage {
+    margin-left: 0;
+  }
 }
