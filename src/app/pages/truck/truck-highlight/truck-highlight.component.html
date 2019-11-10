@@ -1,33 +1,30 @@
-<div id="foodIndex">
-  <div class="food-leftCol">
+<div class="row">
+  <div class="leftCol">
     <div class="foodToday">
       <div>
         <h3>TODAY'S TRUCK</h3>
       </div>
-      <a [routerLink]="['/food/trucks', truckToday.id]">
+      <a [routerLink]="['/truck/', truckToday.id]">
         <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckToday.imageUrl + ')'}">
-          <h2>{{truckToday.name}}</h2>
+          <div class="truckTitle">{{truckToday.name}}</div>
         </div>
       </a>
     </div>
   </div>
-  <div class="food-rightCol">
+  <div class="rightCol">
     <div class="foodNext">
       <div>
         <h3>{{truckNextDay}}</h3>
       </div>
-      <a [routerLink]="['/food/trucks', truckNext.id]">
+      <a [routerLink]="['/truck/', truckNext.id]">
         <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckNext.imageUrl + ')'}">
-          <h2>{{truckNext.name}}</h2>
+          <div class="truckTitle">{{truckNext.name}}</div>
         </div>
       </a>
     </div>
     <div class="foodOptions">
-      <ul>
-        <li><a [routerLink]="['/food/schedule']">schedule</a></li>
-        <li><a [routerLink]="['/food/trucks']">trucks</a></li>
-        <li><a [routerLink]="['/food/request']">request</a></li>
-      </ul>
+      <a [routerLink]="['/truck/schedule']">view schedule</a>
+      <a [routerLink]="['/truck/list']">view trucks</a>
     </div>
   </div>
 </div>

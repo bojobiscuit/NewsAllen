@@ -6,14 +6,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { NavbarComponent } from './parts/navbar/navbar.component';
 import { FooterComponent } from './parts/footer/footer.component';
-import { FoodComponent } from './pages/food/food.component';
 import { MapComponent } from './pages/map/map.component';
 import { FeedbackComponent } from './pages/feedback/feedback.component';
 import { NewsComponent } from './pages/news/news.component';
-import { ScheduleComponent } from './pages/food/schedule/schedule.component';
-import { TruckComponent } from './pages/food/truck/truck.component';
-import { RequestComponent } from './pages/food/request/request.component';
-import { TruckListComponent } from './pages/food/truck-list/truck-list.component';
+import { TruckScheduleComponent } from './pages/truck/truck-schedule/truck-schedule.component';
+import { TruckComponent } from './pages/truck/truck-info/truck-info.component';
+import { TruckListComponent } from './pages/truck/truck-list/truck-list.component';
+import { TruckHighlightComponent } from './pages/truck/truck-highlight/truck-highlight.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +20,12 @@ import { TruckListComponent } from './pages/food/truck-list/truck-list.component
     LayoutComponent,
     NavbarComponent,
     FooterComponent,
-    FoodComponent,
+    TruckHighlightComponent,
     MapComponent,
     FeedbackComponent,
     NewsComponent,
-    ScheduleComponent,
+    TruckScheduleComponent,
     TruckComponent,
-    RequestComponent,
     TruckListComponent,
   ],
   imports: [

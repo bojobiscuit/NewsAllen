@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Truck } from 'src/app/models/truck';
+import { Truck } from 'src/app/models/truck/truck';
 
 @Component({
   selector: 'app-truck',
-  templateUrl: './truck.component.html',
-  styleUrls: ['./truck.component.scss']
+  templateUrl: './truck-info.component.html',
+  styleUrls: ['./truck-info.component.scss']
 })
 export class TruckComponent implements OnInit {
 

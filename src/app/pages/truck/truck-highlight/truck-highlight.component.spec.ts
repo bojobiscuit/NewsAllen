@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TruckHighlightComponent } from './truck-highlight.component';
 
-import { RequestComponent } from './request.component';
-
-describe('RequestComponent', () => {
-  let component: RequestComponent;
-  let fixture: ComponentFixture<RequestComponent>;
+describe('TruckHighlightComponent', () => {
+  let component: TruckHighlightComponent;
+  let fixture: ComponentFixture<TruckHighlightComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RequestComponent ]
+      declarations: [ TruckHighlightComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RequestComponent);
+    fixture = TestBed.createComponent(TruckHighlightComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
