@@ -1,0 +1,1 @@
+docker run --name newsallendb -e MYSQL_ROOT_PASSWORD=calliededede303! -d mysql:latest
