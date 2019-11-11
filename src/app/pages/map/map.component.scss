@@ -29,6 +29,10 @@
     align-items: center;
   }
 
+  img {
+    width: 100%;
+  }
+
   .hubThumbs > a:not(:last-child) {
     margin-bottom: 20px;
   }
