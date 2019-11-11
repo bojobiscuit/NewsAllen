@@ -1,7 +1,13 @@
 #topNav {
-  background-color: #333;
+  background-color: #333333;
   height: 50px;
   overflow: hidden;
+  position: fixed;
+  width: 100%;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
 }
 
 #topNavContainer {
@@ -12,42 +18,121 @@
   justify-content: space-between;
 }
 
+#topNav-left {
+  display: flex;
+}
+
+#topNav-user,
+#topNav-menu,
 #topNav a {
-  display: flex;
-  align-items: center;
   height: 50px;
-}
-
-#topNav .topNav-left {
-  display: flex;
-}
-
-#topNav .topNav-logo a {
-  background: rgb(0, 122, 131);
   padding-left: 20px;
   padding-right: 20px;
-  float: left;
+  text-decoration: none;
+  margin: 0;
+}
+
+#topNav-logo {
+  display: flex;
+  align-items: center;
+  background: #007a83;
   color: #f2f2f2;
   text-decoration: none;
   font-size: 20px;
 }
 
-#topNav .topNav-links a {
-  float: left;
+#topNav-links {
+  display: flex;
+}
+#topNav-links a {
+  display: flex;
+  align-items: center;
   color: #f2f2f2;
-  text-align: center;
-  text-decoration: none;
-  font-size: 17px;
-  padding-left: 20px;
-  padding-right: 20px;
+  font-size: 18px;
+  height: 50px;
 }
-
-#topNav .topNav-links a:hover {
-  background-color: rgb(37, 180, 190);
-  color: black;
+#topNav-links a:hover {
+  background-color: #25b4be;
+  color: #ffffff;
 }
-
-#topNav .topNav-links a.active {
+#topNav-links a.active {
   background-color: #4caf50;
-  color: white;
+  color: #ffffff;
+}
+
+#topNav-user,
+#topNav-menu {
+  align-items: center;
+  color: #ffffff;
+}
+
+#topNav-user:hover,
+#topNav-menu:hover {
+  background: #007a83;
+  cursor: pointer;
+}
+
+#topNav-right {
+  display: flex;
+}
+
+#topNav-user {
+  display: flex;
+}
+#topNav-user .name {
+  margin-right: 20px;
+}
+
+#topNav-menu {
+  display: none;
+}
+
+#topNav-dropdown-links {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+#topNav-dropdown-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #666666;
+  color: #ffffff;
+  background: #333333;
+}
+#topNav-dropdown-links a:hover {
+  background: #25b4be;
+}
+#topNav-dropdown-links a:active,
+#topNav-dropdown-links a.active {
+  background: #4caf50;
+}
+
+@media only screen and (max-width: 768px) {
+  #topNav-user .name {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #topNav-links {
+    display: none;
+  }
+
+  #topNav-user,
+  #topNav-menu,
+  #topNav-right {
+    display: flex;
+  }
+
+  #topNav {
+    background-color: #333333;
+    height: auto;
+  } 
+
+  #topNav-dropdown-links {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
 }

@@ -1,20 +1,24 @@
 <div id="topNav">
   <div id="topNavContainer">
-
-  <div class="topNav-left">
-    <div class="topNav-logo">
-      <a href="">NEWS ALLEN</a>
-    </div>
-    <div class="topNav-links">
+    <div id="topNav-left">
+      <a id="topNav-logo" [routerLink]="['/']">NEWS ALLEN</a>
+      <div id="topNav-links">
         <a href="" [routerLink]="['/news']" routerLinkActive="active">news</a>
         <a href="" [routerLink]="['/map']" routerLinkActive="active">map</a>
         <a href="truck" [routerLink]="['/truck']" routerLinkActive="active">truck</a>
+      </div>
+    </div>
+    <div id="topNav-right">
+      <div id="topNav-user">
+        <span class="name">Ray</span>
+        <i class="far fa-user-circle"></i>
+      </div>
+      <i id="topNav-menu" class="fas fa-bars" (click)="toggleExpand()"></i>
     </div>
   </div>
-  <div class="topNav-right">
-    <div class="topNav-links">
-      <a href="feedback" [routerLink]="['/feedback']" routerLinkActive="active">feedback</a>
-    </div>
+  <div id="topNav-dropdown-links" *ngIf="isExpanded">
+    <a href="" [routerLink]="['/news']" routerLinkActive="active" (click)="hideExpand()">news</a>
+    <a href="" [routerLink]="['/map']" routerLinkActive="active" (click)="hideExpand()">map</a>
+    <a href="truck" [routerLink]="['/truck']" routerLinkActive="active" (click)="hideExpand()">truck</a>
   </div>
-</div>
 </div>
