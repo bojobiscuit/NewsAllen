@@ -1,23 +1,23 @@
 <div class="row">
   <div class="leftCol">
-    <div class="foodToday">
+    <div class="foodToday" *ngIf="truckToday">
       <div>
         <h3>TODAY'S TRUCK</h3>
       </div>
       <a [routerLink]="['/truck/', truckToday.id]">
-        <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckToday.imageUrl + ')'}">
+        <div class="truckImage" [ngStyle]="{'background-image': 'url(/assets/img/trucks/' + truckToday.id + '.jpg)'}">
           <div class="truckTitle">{{truckToday.name}}</div>
         </div>
       </a>
     </div>
   </div>
   <div class="rightCol">
-    <div class="foodNext">
+    <div class="foodNext" *ngIf="truckNext">
       <div>
         <h3>{{truckNextDay}}</h3>
       </div>
       <a [routerLink]="['/truck/', truckNext.id]">
-        <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckNext.imageUrl + ')'}">
+        <div class="truckImage" [ngStyle]="{'background-image': 'url(/assets/img/trucks/' + truckNext.id + '.jpg)'}">
           <div class="truckTitle">{{truckNext.name}}</div>
         </div>
       </a>

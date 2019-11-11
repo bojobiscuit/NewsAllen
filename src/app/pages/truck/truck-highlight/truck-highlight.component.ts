@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TruckHighlight } from 'src/app/models/truck/truck-highlight';
 import { All } from 'src/app/general/all';
+import { TruckService } from 'src/app/services/truck.service';
 
 @Component({
   selector: 'app-truck',
@@ -13,22 +14,25 @@ export class TruckHighlightComponent implements OnInit {
   truckNext: TruckHighlight;
   truckNextDay: string;
 
-  constructor() { }
+  constructor(private truckService: TruckService) { }
 
   ngOnInit() {
-    this.truckToday = new TruckHighlight(
-      new Date(2019, 11, 6),
-      99,
-      "Brunch Holiday",
-      "/assets/img/brunchholiday.jpg"
+    this.GetTruckHighlightPage();
+  }
+
+  private GetTruckHighlightPage() {
+    this.truckService.getHighlightPage().subscribe(
+      (dto) => {
+        console.log(dto);
+        this.truckToday = dto.todayTruck;
+        this.truckNext = dto.nextTruck;
+      },
+      err => console.error(err),
+      () => {
+        console.log('Observer got a complete notification');
+        this.truckNextDay = All.getDateText(this.truckNext.date);
+      }
     );
-    this.truckNext = new TruckHighlight(
-      new Date(2019, 11, 7),
-      101,
-      "Krystyna's",
-      "/assets/img/polish.jpg"
-    );
-    this.truckNextDay = All.getDateText(this.truckNext.date);
   }
 
 }
