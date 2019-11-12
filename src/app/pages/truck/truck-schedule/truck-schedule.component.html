@@ -1,7 +1,7 @@
 <h2>Truck Schedule</h2>
 <div class="truckSchedule">
   <a class="truckScheduleRow" *ngFor="let truck of trucks" [routerLink]="['/truck/', truck.id]">
-    <div class="truckDate">{{truck.getDate()}}</div>
+    <div class="truckDate">{{getDateOutput(truck)}}</div>
     <div class="truckName">{{truck.name}}</div>
   </a>
 </div>

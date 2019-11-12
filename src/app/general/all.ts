@@ -1,7 +1,7 @@
 export class All {
 
-    static getDate(date: Date) {
-        return All.months[date.getMonth() - 1] + " " + date.getDate();
+    static getDateOuput(date: Date) {
+        return All.months[date.getMonth()] + " " + date.getDate();
     }
 
     static getDateText(date: Date) {
@@ -18,9 +18,8 @@ export class All {
         // var tomorrow = new Date();
 
         // TODO: 11/6 date used for debugging
-        var today = new Date(2019, 11, 6);
-        var tomorrow = new Date(2019, 11, 6);
-        tomorrow.setDate(today.getDate() + 1);
+        var tomorrow = new Date(2019, 10, 6);
+        tomorrow.setDate(tomorrow.getDate() + 1);
 
         return date.getDate() == tomorrow.getDate() &&
             date.getMonth() == tomorrow.getMonth() &&

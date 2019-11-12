@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TruckListItem } from 'src/app/models/truck/truck-list-item';
+import { TruckService } from 'src/app/services/truck.service';
 
 @Component({
   selector: 'app-truck-list',
@@ -9,15 +10,18 @@ import { TruckListItem } from 'src/app/models/truck/truck-list-item';
 export class TruckListComponent implements OnInit {
   trucks: TruckListItem[];
 
-  constructor() { }
+  constructor(private truckService: TruckService) { }
 
   ngOnInit() {
-    this.trucks = [
-      new TruckListItem(101, "Brunch Holiday"),
-      new TruckListItem(102, "Krystyna's"),
-      new TruckListItem(103, "Bearded Dog"),
-      new TruckListItem(104, "Marzan's"),
-      new TruckListItem(105, "Short Grain"),
-    ];
+    this.GetTruckList();
+  }
+
+  private GetTruckList() {
+    this.truckService.getTruckList().subscribe(
+      (dto) => {
+        this.trucks = dto;
+      },
+      err => console.error(err),
+    );
   }
 }

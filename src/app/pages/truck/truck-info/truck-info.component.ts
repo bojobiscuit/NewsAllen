@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Truck } from 'src/app/models/truck/truck';
+import { TruckDetails } from 'src/app/models/truck/truck-details';
+import { TruckService } from 'src/app/services/truck.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-truck',
@@ -8,18 +10,30 @@ import { Truck } from 'src/app/models/truck/truck';
 })
 export class TruckComponent implements OnInit {
 
-  truck: Truck;
+  truck: TruckDetails;
 
-  constructor() { }
+  constructor(private truckService: TruckService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.truck = new Truck(
-      101,
-      "Brunch Holiday",
-      "British",
-      "/assets/img/brunchholiday.jpg",
-      "http://www.google.com"
+    this.route.paramMap.subscribe(
+      (params) => {
+        var id = +params.get('id');
+        if (!this.truck)
+          this.GetTruck(id);
+      });
+  }
+
+  private GetTruck(id: number) {
+    this.truckService.getTruck(id).subscribe(
+      (dto) => {
+        this.truck = dto;
+      },
+      err => console.error(err),
     );
+  }
+
+  getTotalRatings() {
+    return this.truck.loveRatings + this.truck.likeRatings + this.truck.mehRatings;
   }
 
 }

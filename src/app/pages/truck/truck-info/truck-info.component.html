@@ -1,21 +1,21 @@
-<div class="row">
+<div class="row" *ngIf="truck">
   <div class="leftCol">
     <div class="detailsArea">
       <h2>{{truck.name}}</h2>
       <div class="website"><a href="{{truck.webUrl}}"><i class="fas fa-globe-americas"></i><span>website</span></a></div>
       <div class="ratingsContainer">
-        <div class="ratingCount">20 ratings</div>
         <div class="ratings">
           <div>
-            <i class="far fa-heart"></i><span>20%</span>
+            <i class="far fa-heart"></i><span>{{truck.loveRatings}}</span>
           </div>
           <div>
-            <i class="far fa-thumbs-up"></i><span>60%</span>
+            <i class="far fa-thumbs-up"></i><span>{{truck.likeRatings}}</span>
           </div>
           <div>
-            <i class="far fa-meh"></i><span>10%</span>
+            <i class="far fa-meh"></i><span>{{truck.mehRatings}}</span>
           </div>
         </div>
+        <div class="ratingCount">{{getTotalRatings()}} ratings</div>
       </div>
       <div class="submit">
         <a href="#"><i class="far fa-star"></i>Rate Truck</a>
@@ -24,7 +24,7 @@
   </div>
   <div class="rightCol">
     <div class="imageArea">
-      <img src="assets/img/brunchholiday.jpg" />
+      <img src="assets/img/trucks/{{truck.id}}.jpg" />
     </div>
   </div>
 </div>

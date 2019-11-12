@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TruckScheduled } from 'src/app/models/truck/truck-scheduled';
+import { TruckService } from 'src/app/services/truck.service';
+import { All } from 'src/app/general/all';
 
 @Component({
   selector: 'app-schedule',
@@ -10,15 +12,22 @@ export class TruckScheduleComponent implements OnInit {
 
   trucks: TruckScheduled[];
 
-  constructor() { }
+  constructor(private truckService: TruckService) { }
 
   ngOnInit() {
-    this.trucks = [
-      new TruckScheduled(new Date(2019, 11, 6), 101, "Brunch Holiday"),
-      new TruckScheduled(new Date(2019, 11, 7), 102, "Krystyna's"),
-      new TruckScheduled(new Date(2019, 11, 8), 103, "Bearded Dog"),
-      new TruckScheduled(new Date(2019, 11, 11), 104, "Marzan's"),
-      new TruckScheduled(new Date(2019, 11, 12), 105, "Short Grain"),
-    ];
+    this.GetTruckScheduleList();
+  }
+
+  private GetTruckScheduleList() {
+    this.truckService.getScheduleList().subscribe(
+      (dto) => {
+        this.trucks = dto;
+      },
+      err => console.error(err),
+    );
+  }
+
+  getDateOutput(truck: TruckScheduled) {
+    return All.getDateOuput(new Date(truck.date));
   }
 }

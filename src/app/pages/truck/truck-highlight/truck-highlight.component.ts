@@ -26,10 +26,11 @@ export class TruckHighlightComponent implements OnInit {
         console.log(dto);
         this.truckToday = dto.todayTruck;
         this.truckNext = dto.nextTruck;
+        this.truckToday.date = new Date(this.truckToday.date);
+        this.truckNext.date = new Date(this.truckNext.date);
       },
       err => console.error(err),
       () => {
-        console.log('Observer got a complete notification');
         this.truckNextDay = All.getDateText(this.truckNext.date);
       }
     );
