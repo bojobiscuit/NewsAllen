@@ -15,7 +15,7 @@
 
 .truckTitle {
   display: inline-block;
-  color: #ddd;
+  color: #ffffff;
 }
 
 .truckImage {
@@ -55,7 +55,12 @@
 }
 
 // Options
+.foodOptionsWrapper {
+}
 .foodOptions {
+  border: 2px solid #cccccc;
+  background: #ffffff;
+  padding: 20px;
   font-size: 32px;
   display: flex;
   flex-direction: column;
@@ -85,13 +90,15 @@
   }
 
   .foodNext {
-    display: none;;
+    display: none;
   }
 
   .foodOptions {
     flex: 1;
     text-align: center;
     font-size: 40px;
+    border-left: 0;
+    border-right: 0;
   }
 
   .rightCol > div:not(:last-child) {

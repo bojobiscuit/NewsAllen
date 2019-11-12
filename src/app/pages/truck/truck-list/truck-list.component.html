@@ -1,6 +1,9 @@
+<app-alert></app-alert>
 <h2>Food Trucks</h2>
-<div class="truckSchedule">
-  <a class="truckScheduleRow" *ngFor="let truck of trucks" [routerLink]="['/truck/', truck.id]">
-    <div class="truckName">- {{truck.name}}</div>
-  </a>
+<div class="truckScheduleWrapper">
+  <div class="truckSchedule">
+    <a class="truckScheduleRow" *ngFor="let truck of trucks" [routerLink]="['/truck/', truck.id]">
+      <div class="truckName">{{truck.name}}</div>
+    </a>
+  </div>
 </div>

@@ -4,12 +4,16 @@
     text-align: center;
 }
 
+#formAreaWrapper {
+}
+
 #formArea {
-    border-top: 2px solid #333333;
+    border: 2px solid #cccccc;
+    background: #ffffff;
     padding: 20px;
     text-align: left;
 }
 
 .formField {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }

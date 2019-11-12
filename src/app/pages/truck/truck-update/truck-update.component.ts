@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TruckDetails } from 'src/app/models/truck/truck-details';
 import { TruckService } from 'src/app/services/truck.service';
 import { ActivatedRoute } from '@angular/router';
+import { NavService } from 'src/app/services/nav.service';
 
 @Component({
   selector: 'app-truck-update',
@@ -13,7 +14,7 @@ export class TruckUpdateComponent implements OnInit {
   truck: TruckDetails;
   isNewTruck: boolean = true;
 
-  constructor(private truckService: TruckService, private route: ActivatedRoute) { }
+  constructor(private truckService: TruckService, private navService: NavService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
@@ -42,14 +43,26 @@ export class TruckUpdateComponent implements OnInit {
   updateTruck() {
     if (this.isNewTruck) {
       this.truckService.addTruck(this.truck).subscribe(
-        () => { },
-        err => console.error(err)
+        () => {
+          console.log("truck added");
+          this.navService.navigateWithMessage("created", "The truck was created successfully.", "/truck/list");
+        },
+        err => {
+          console.error("truck add error: " + err);
+          this.navService.navigateWithError("/truck/list");
+        }
       );
     }
     else {
       this.truckService.editTruck(this.truck).subscribe(
-        () => { },
-        err => console.error(err)
+        () => {
+          console.log("truck edited:" + this.truck.id);
+          this.navService.navigateWithMessage("created", "The truck was edited successfully.", "/truck/" + this.truck.id);
+        },
+        err => {
+          console.error("truck edit error: " + err);
+          this.navService.navigateWithError("/truck/list");
+        }
       );
     }
   }

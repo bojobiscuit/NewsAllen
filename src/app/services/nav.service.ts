@@ -1,0 +1,49 @@
+import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class NavService {
+
+  submitType: string;
+  submitMessage: string;
+
+  constructor(public title: Title, public router: Router) {
+    this.resetTitle();
+  }
+
+  navigateWithError(path: string, ...params: any[]) {
+    this.submitType = "error";
+    this.submitMessage = "The request had an error. :/";
+    this.nav(path, params);
+  }
+
+  navigateWithMessage(subType: string, subMsg: string, path: string, ...params: any[]) {
+    this.submitType = subType;
+    this.submitMessage = subMsg;
+    this.nav(path, params);
+  }
+
+  navigate(path: string, ...params: any[]) {
+    this.nav(path, params);
+  }
+
+  nav(path: string, params: any[]) {
+    var args = [path];
+    params.forEach(element => {
+      if (element)
+        args.push(element);
+    });
+    this.router.navigate(args);
+  }
+
+  resetTitle() {
+    this.setTitle("NAH: News Allen");
+  }
+
+  setTitle(name: string) {
+    this.title.setTitle("NAH - " + name);
+  }
+}

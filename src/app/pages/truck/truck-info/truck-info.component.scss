@@ -20,6 +20,7 @@
 }
 
 .detailsArea {
+  border: 2px solid #cccccc;
   background: #ffffff;
   padding: 20px;
 }
@@ -74,5 +75,10 @@
 
   .rightCol {
     padding-left: 0;
+  }
+
+  .detailsArea {
+    border-left: 0;
+    border-right: 0;
   }
 }

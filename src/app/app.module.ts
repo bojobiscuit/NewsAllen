@@ -16,6 +16,7 @@ import { TruckComponent } from './pages/truck/truck-info/truck-info.component';
 import { TruckListComponent } from './pages/truck/truck-list/truck-list.component';
 import { TruckHighlightComponent } from './pages/truck/truck-highlight/truck-highlight.component';
 import { TruckUpdateComponent } from './pages/truck/truck-update/truck-update.component';
+import { AlertComponent } from './parts/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TruckUpdateComponent } from './pages/truck/truck-update/truck-update.co
     TruckComponent,
     TruckListComponent,
     TruckUpdateComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
