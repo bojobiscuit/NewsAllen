@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './pages/home/home.component';
@@ -14,6 +15,7 @@ import { TruckScheduleComponent } from './pages/truck/truck-schedule/truck-sched
 import { TruckComponent } from './pages/truck/truck-info/truck-info.component';
 import { TruckListComponent } from './pages/truck/truck-list/truck-list.component';
 import { TruckHighlightComponent } from './pages/truck/truck-highlight/truck-highlight.component';
+import { TruckUpdateComponent } from './pages/truck/truck-update/truck-update.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { TruckHighlightComponent } from './pages/truck/truck-highlight/truck-hig
     TruckScheduleComponent,
     TruckComponent,
     TruckListComponent,
+    TruckUpdateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [LayoutComponent]

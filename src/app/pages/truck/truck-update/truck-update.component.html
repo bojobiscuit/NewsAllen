@@ -1,0 +1,15 @@
+<div id="truckUpdateContainer" *ngIf="truck">
+  <h2>{{isNewTruck ? "Add" : "Edit"}} Truck</h2>
+
+  <div id="formArea">
+    <div class="formField">
+      <label for="fname">Truck Name</label>
+      <input type="text" name="name" placeholder="Name" [(ngModel)]="truck.name">
+    </div>
+    <div class="formField">
+      <label for="fname">Website Url</label>
+      <input type="text" name="webUrl" placeholder="Website" [(ngModel)]="truck.webUrl">
+    </div>
+    <input type="submit" class="btn btn-primary mr-2" (click)="updateTruck()" value="Submit" />
+  </div>
+</div>

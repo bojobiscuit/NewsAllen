@@ -6,3 +6,4 @@ export class TruckHighlightPage {
     nextTruck: TruckHighlight;
 
 }
+

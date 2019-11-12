@@ -2,7 +2,6 @@
   <div class="leftCol">
     <div class="detailsArea">
       <h2>{{truck.name}}</h2>
-      <div class="website"><a href="{{truck.webUrl}}"><i class="fas fa-globe-americas"></i><span>website</span></a></div>
       <div class="ratingsContainer">
         <div class="ratings">
           <div>
@@ -15,10 +14,11 @@
             <i class="far fa-meh"></i><span>{{truck.mehRatings}}</span>
           </div>
         </div>
-        <div class="ratingCount">{{getTotalRatings()}} ratings</div>
       </div>
-      <div class="submit">
-        <a href="#"><i class="far fa-star"></i>Rate Truck</a>
+      <div class="options">
+        <a href="{{truck.webUrl}}"><i class="fas fa-globe-americas"></i><span>website</span></a>
+        <a href="#"><i class="far fa-star"></i>rate truck</a>
+        <a [routerLink]="['/truck/update', truck.id]"><i class="far fa-edit"></i>edit truck</a>
       </div>
     </div>
   </div>

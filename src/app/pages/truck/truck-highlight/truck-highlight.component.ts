@@ -23,7 +23,6 @@ export class TruckHighlightComponent implements OnInit {
   private GetTruckHighlightPage() {
     this.truckService.getHighlightPage().subscribe(
       (dto) => {
-        console.log(dto);
         this.truckToday = dto.todayTruck;
         this.truckNext = dto.nextTruck;
         this.truckToday.date = new Date(this.truckToday.date);

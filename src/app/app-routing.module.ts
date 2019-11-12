@@ -8,6 +8,7 @@ import { TruckComponent } from './pages/truck/truck-info/truck-info.component';
 import { TruckListComponent } from './pages/truck/truck-list/truck-list.component';
 import { TruckScheduleComponent } from './pages/truck/truck-schedule/truck-schedule.component';
 import { TruckHighlightComponent } from './pages/truck/truck-highlight/truck-highlight.component';
+import { TruckUpdateComponent } from './pages/truck/truck-update/truck-update.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'truck', component: TruckHighlightComponent },
   { path: 'truck/list', component: TruckListComponent },
   { path: 'truck/schedule', component: TruckScheduleComponent },
+  { path: 'truck/update/:id', component: TruckUpdateComponent },
+  { path: 'truck/update', component: TruckUpdateComponent },
   { path: 'truck/:id', component: TruckComponent },
   { path: 'feedback', component: FeedbackComponent },
 ];
