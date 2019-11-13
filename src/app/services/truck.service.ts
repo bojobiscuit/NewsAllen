@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { TruckHighlightPage } from '../dtos/truck-dtos';
+import { TruckHighlightPage, TruckUserRatingDto } from '../dtos/truck-dtos';
 import { HttpClient } from '@angular/common/http';
 import { TruckScheduled } from '../models/truck/truck-scheduled';
 import { TruckListItem } from '../models/truck/truck-list-item';
@@ -11,7 +11,6 @@ import { TruckDetails } from '../models/truck/truck-details';
   providedIn: 'root'
 })
 export class TruckService {
-
   constructor(private http: HttpClient) { }
 
   getHighlightPage(): Observable<TruckHighlightPage> {
@@ -50,4 +49,9 @@ export class TruckService {
     return this.http.post<{}>(url, truck);
   }
 
+  setRating(dto: TruckUserRatingDto) {
+    console.log(`setRating:${dto.truckId}/${dto.userId}/${dto.ratingId}`);
+    const url = `${environment.apiPath}/truck/rating`;
+    return this.http.post<{}>(url, dto);
+  }
 }

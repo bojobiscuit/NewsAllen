@@ -1,31 +1,48 @@
-<app-alert></app-alert>
+<app-alert [message]="alert.message" [status]="alert.status"></app-alert>
 <div class="row" *ngIf="truck">
   <div class="leftCol">
     <div class="wrapper">
-
       <div class="detailsArea">
-        <h2>{{truck.name}}</h2>
-        <div class="ratingsContainer">
-          <div class="ratings">
-            <div>
-              <i class="far fa-heart"></i><span>{{truck.loveRatings}}</span>
-            </div>
-            <div>
-              <i class="far fa-thumbs-up"></i><span>{{truck.likeRatings}}</span>
-            </div>
-            <div>
-              <i class="far fa-meh"></i><span>{{truck.mehRatings}}</span>
+        <div *ngIf="!detailsSlide">
+          <h2>{{truck.name}}</h2>
+          <div class="ratingsContainer">
+            <div class="ratings">
+              <div>
+                <i class="far fa-heart"></i><span>{{truck.loveRatings}}</span>
+              </div>
+              <div>
+                <i class="far fa-thumbs-up"></i><span>{{truck.likeRatings}}</span>
+              </div>
+              <div>
+                <i class="far fa-meh"></i><span>{{truck.mehRatings}}</span>
+              </div>
             </div>
           </div>
+          <div class="options">
+            <a href="{{truck.webUrl}}"><i class="fas fa-globe-americas"></i><span>website</span></a>
+            <a class="ratingSlideLink" (click)="showRatingsSlide()"><i class="far fa-star"></i>rate truck</a>
+            <a [routerLink]="['/truck/update', truck.id]"><i class="far fa-edit"></i>edit truck</a>
+          </div>
         </div>
-        <div class="options">
-          <a href="{{truck.webUrl}}"><i class="fas fa-globe-americas"></i><span>website</span></a>
-          <a href="#"><i class="far fa-star"></i>rate truck</a>
-          <a [routerLink]="['/truck/update', truck.id]"><i class="far fa-edit"></i>edit truck</a>
+        <div *ngIf="detailsSlide == 'ratings'">
+          <h3>Rate this Truck</h3>
+          <div class="rateOptions">
+            <div class="active" (click)="setRating('love')">
+              <i class="far fa-heart"></i>
+            </div>
+            <div (click)="setRating('like')">
+              <i class="far fa-thumbs-up"></i>
+            </div>
+            <div (click)="setRating('meh')">
+              <i class="far fa-meh"></i>
+            </div>
+          </div>
+          <div class="options">
+            <a class="ratingSlideLink" (click)="showDetailsSlide()">cancel</a>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
   <div class="rightCol">
     <div class="imageArea">

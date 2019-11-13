@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NavService } from 'src/app/services/nav.service';
 
 @Component({
@@ -8,8 +8,8 @@ import { NavService } from 'src/app/services/nav.service';
 })
 export class AlertComponent implements OnInit {
   
-  message: string;
-  status: string;
+  @Input() message: string;
+  @Input() status: string;
 
   constructor(public nav: NavService) { }
 

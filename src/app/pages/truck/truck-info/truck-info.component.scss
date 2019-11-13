@@ -47,6 +47,27 @@
   margin: 0 5px 5px 5px;
 }
 
+.rateOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.rateOptions > div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.rateOptions i {
+  margin: 0 5px 5px 5px;
+}
+
+.rateOptions .active {
+  background: #5bd48a;
+}
+
+
 .imageArea img {
   width: 100%;
 }
@@ -58,6 +79,10 @@
 
 .options a:not(:last-child) {
   margin-bottom: 10px;
+}
+
+.ratingSlideLink {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
