@@ -26,6 +26,7 @@ export class TruckComponent implements OnInit {
   }
 
   private getTruckFromId() {
+    this.navService.setTitle("Truck");
     this.route.paramMap.subscribe(
       (params) => {
         var id = +params.get('id');
@@ -39,6 +40,7 @@ export class TruckComponent implements OnInit {
       (dto) => {
         this.truck = dto;
         if (this.truck) {
+          this.navService.setTitle("Truck: " + this.truck.name);
           this.getRating();
         }
       },
@@ -111,5 +113,9 @@ export class TruckComponent implements OnInit {
         this.showDetailsSlide(false);
       }
     );
+  }
+
+  isRated(value: number) {
+    return (this.rating && this.rating.ratingId == value);
   }
 }

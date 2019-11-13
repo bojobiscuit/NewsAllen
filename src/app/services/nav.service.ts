@@ -40,7 +40,7 @@ export class NavService {
   }
 
   resetTitle() {
-    this.setTitle("NAH: News Allen");
+    this.title.setTitle("NAH: News Allen Hamilton");
   }
 
   setTitle(name: string) {

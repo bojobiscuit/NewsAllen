@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TruckScheduled } from 'src/app/models/truck/truck-scheduled';
 import { TruckService } from 'src/app/services/truck.service';
 import { All } from 'src/app/general/all';
+import { NavService } from 'src/app/services/nav.service';
 
 @Component({
   selector: 'app-schedule',
@@ -12,9 +13,10 @@ export class TruckScheduleComponent implements OnInit {
 
   trucks: TruckScheduled[];
 
-  constructor(private truckService: TruckService) { }
+  constructor(private truckService: TruckService, private navService: NavService) { }
 
   ngOnInit() {
+    this.navService.setTitle("Food Truck Schedule");
     this.GetTruckScheduleList();
   }
 

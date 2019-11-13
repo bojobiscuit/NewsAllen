@@ -9,7 +9,6 @@ import { LayoutComponent } from './layout/layout.component';
 import { NavbarComponent } from './parts/navbar/navbar.component';
 import { FooterComponent } from './parts/footer/footer.component';
 import { MapComponent } from './pages/map/map.component';
-import { FeedbackComponent } from './pages/feedback/feedback.component';
 import { NewsComponent } from './pages/news/news.component';
 import { TruckScheduleComponent } from './pages/truck/truck-schedule/truck-schedule.component';
 import { TruckComponent } from './pages/truck/truck-info/truck-info.component';
@@ -26,7 +25,6 @@ import { AlertComponent } from './parts/alert/alert.component';
     FooterComponent,
     TruckHighlightComponent,
     MapComponent,
-    FeedbackComponent,
     NewsComponent,
     TruckScheduleComponent,
     TruckComponent,

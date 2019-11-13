@@ -27,13 +27,13 @@
         <div *ngIf="detailsSlide == 'ratings'">
           <h3>Rate this Truck</h3>
           <div class="rateOptions">
-            <div [class.active]="rating.ratingId == 1" (click)="setRating('love')">
+            <div [class.active]="isRated(1)" (click)="setRating('love')">
               <i class="far fa-heart"></i>
             </div>
-            <div [class.active]="rating.ratingId == 2" (click)="setRating('like')">
+            <div [class.active]="isRated(2)" (click)="setRating('like')">
               <i class="far fa-thumbs-up"></i>
             </div>
-            <div [class.active]="rating.ratingId == 3" (click)="setRating('meh')">
+            <div [class.active]="isRated(3)" (click)="setRating('meh')">
               <i class="far fa-meh"></i>
             </div>
           </div>

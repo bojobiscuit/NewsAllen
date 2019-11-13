@@ -21,10 +21,12 @@ export class TruckUpdateComponent implements OnInit {
       (params) => {
         var id = +params.get('id');
         if (id) {
+          this.navService.setTitle("Edit Truck");
           this.isNewTruck = false;
           this.GetTruck(id);
         }
         else {
+          this.navService.setTitle("Add Truck");
           this.isNewTruck = true;
           this.truck = new TruckDetails();
         }

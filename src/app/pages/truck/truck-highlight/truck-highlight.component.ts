@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TruckHighlight } from 'src/app/models/truck/truck-highlight';
 import { All } from 'src/app/general/all';
 import { TruckService } from 'src/app/services/truck.service';
+import { NavService } from 'src/app/services/nav.service';
 
 @Component({
   selector: 'app-truck',
@@ -14,9 +15,10 @@ export class TruckHighlightComponent implements OnInit {
   truckNext: TruckHighlight;
   truckNextDay: string;
 
-  constructor(private truckService: TruckService) { }
+  constructor(private truckService: TruckService, private navService: NavService) { }
 
   ngOnInit() {
+    this.navService.setTitle("Food Trucks");
     this.GetTruckHighlightPage();
   }
 
