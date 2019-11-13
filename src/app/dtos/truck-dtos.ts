@@ -14,4 +14,17 @@ export class TruckUserRatingDto {
 export class AlertDto {
     message: string;
     status: string;
+
+    setAlert(msg: string, st: string) {
+        this.message = msg;
+        this.status = st;
+    }
+    setError(msg: string) {
+        this.message = msg;
+        this.status = "Error";
+    }
+    reset() {
+        this.message = null;
+        this.status = null;
+    }
 }

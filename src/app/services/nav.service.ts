@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class NavService {
 
-  submitType: string;
+  submitStatus: string;
   submitMessage: string;
 
   constructor(public title: Title, public router: Router) {
@@ -15,13 +15,13 @@ export class NavService {
   }
 
   navigateWithError(path: string, ...params: any[]) {
-    this.submitType = "error";
+    this.submitStatus = "error";
     this.submitMessage = "The request had an error. :/";
     this.nav(path, params);
   }
 
   navigateWithMessage(subType: string, subMsg: string, path: string, ...params: any[]) {
-    this.submitType = subType;
+    this.submitStatus = subType;
     this.submitMessage = subMsg;
     this.nav(path, params);
   }

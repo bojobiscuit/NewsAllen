@@ -11,6 +11,7 @@ import { TruckDetails } from '../models/truck/truck-details';
   providedIn: 'root'
 })
 export class TruckService {
+
   constructor(private http: HttpClient) { }
 
   getHighlightPage(): Observable<TruckHighlightPage> {
@@ -49,9 +50,21 @@ export class TruckService {
     return this.http.post<{}>(url, truck);
   }
 
+  getRating(truckId: number, userId: number): Observable<TruckUserRatingDto> {
+    console.log('getRating');
+    const url = `${environment.apiPath}/truck/rating?truckId=${truckId}&userId=${userId}`;
+    return this.http.get<TruckUserRatingDto>(url);
+  }
+
   setRating(dto: TruckUserRatingDto) {
     console.log(`setRating:${dto.truckId}/${dto.userId}/${dto.ratingId}`);
     const url = `${environment.apiPath}/truck/rating`;
     return this.http.post<{}>(url, dto);
+  }
+
+  deleteRating(truckId: number, userId: number) {
+    console.log(`deleteRating:${truckId}/${userId}`);
+    const url = `${environment.apiPath}/truck/rating?truckId=${truckId}&userId=${userId}`;
+    return this.http.delete<{}>(url);
   }
 }

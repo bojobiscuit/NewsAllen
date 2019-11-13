@@ -14,16 +14,15 @@ import { NavService } from 'src/app/services/nav.service';
 export class TruckComponent implements OnInit {
 
   truck: TruckDetails;
+  rating: TruckUserRatingDto;
   detailsSlide: string = null;
-  alert: AlertDto = new AlertDto();
+  alert: AlertDto;
 
   constructor(private truckService: TruckService, private userService: UserService, private navService: NavService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.showDetailsSlide();
+    this.alert = new AlertDto();
     this.getTruckFromId();
-    this.alert.message = null;
-    this.alert.status = null;
   }
 
   private getTruckFromId() {
@@ -39,25 +38,33 @@ export class TruckComponent implements OnInit {
     this.truckService.getTruck(id).subscribe(
       (dto) => {
         this.truck = dto;
+        if (this.truck) {
+          this.getRating();
+        }
       },
       err => console.error(err),
     );
   }
 
-  getTotalRatings() {
-    return this.truck.loveRatings + this.truck.likeRatings + this.truck.mehRatings;
+  private getRating() {
+    this.truckService.getRating(this.truck.id, this.userService.userId).subscribe(
+      (dto) => {
+        this.rating = dto;
+      },
+      err => console.error(err)
+    );
   }
 
   showDetailsSlide(hideAlerts: boolean = true) {
     this.detailsSlide = null;
     if (hideAlerts)
-      this.alert.status = null;
+      this.alert.reset();
   }
 
   showRatingsSlide(hideAlerts: boolean = true) {
     this.detailsSlide = "ratings";
     if (hideAlerts)
-      this.alert.status = null;
+      this.alert.reset();
   }
 
   setRating(rating: string) {
@@ -76,15 +83,29 @@ export class TruckComponent implements OnInit {
     this.truckService.setRating(dto).subscribe(
       () => {
         console.log("rating set");
-        this.alert.message = "Rating was set successfully";
-        this.alert.status = "Updated";
-        this.truck = null;
-        this.getTruckFromId();
+        this.alert.setAlert("Rating was set successfully", "Updated");
+        this.GetTruck(this.truck.id);
       },
       err => {
-        this.alert.message = "There was an error setting the rating";
-        this.alert.status = "Errror";
-        console.error("rating set error: " + err);
+        this.alert.setError("There was an error setting the rating");
+        console.error(err);
+      },
+      () => {
+        this.showDetailsSlide(false);
+      }
+    );
+  }
+
+  removeRating() {
+    this.truckService.deleteRating(this.truck.id, this.userService.userId).subscribe(
+      () => {
+        console.log("rating deleted");
+        this.alert.setAlert("Rating was removed", "Removed");
+        this.GetTruck(this.truck.id);
+      },
+      err => {
+        this.alert.setError("There was an error removing the rating");
+        console.error(err);
       },
       () => {
         this.showDetailsSlide(false);

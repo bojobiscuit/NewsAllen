@@ -57,6 +57,7 @@
 .rateOptions > div {
   padding: 10px;
   cursor: pointer;
+  border: 2px solid #cccccc;
 }
 
 .rateOptions i {
@@ -64,9 +65,17 @@
 }
 
 .rateOptions .active {
-  background: #5bd48a;
+  background: #4caf50;
+  color: #ffffff;
 }
 
+.rateOptions > div:hover {
+  background: #25b4be;
+}
+
+.rateOptions > div:hover .active {
+  color: #ffffff;
+}
 
 .imageArea img {
   width: 100%;

@@ -5,7 +5,13 @@
 }
 
 .success {
-    background: #dcf7d7;
-    border: 2px solid #bbe0b5;
-    color: #3e6337;  
+  background: #dcf7d7;
+  border: 2px solid #bbe0b5;
+  color: #3e6337;
+}
+
+.error {
+  background: #f7d7d7;
+  border: 2px solid #e0b5b5;
+  color: #633737;
 }
