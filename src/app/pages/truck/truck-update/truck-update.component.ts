@@ -68,4 +68,19 @@ export class TruckUpdateComponent implements OnInit {
       );
     }
   }
+
+  deleteTruck() {
+    if (confirm('Are you sure you want to delete this truck?')) {
+      this.truckService.deleteTruck(this.truck.id).subscribe(
+        () => {
+          console.log("truck added");
+          this.navService.navigateWithMessage("created", "The truck was deleted successfully.", "/truck/list");
+        },
+        err => {
+          console.error("truck delete error: " + err);
+          this.navService.navigateWithError("/truck/list");
+        }
+      );
+    }
+  }
 }

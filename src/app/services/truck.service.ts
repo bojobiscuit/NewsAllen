@@ -50,19 +50,25 @@ export class TruckService {
     return this.http.post<{}>(url, truck);
   }
 
+  deleteTruck(truckId: number): Observable<{}> {
+    console.log(`deleteTruck:${truckId}`);
+    const url = `${environment.apiPath}/truck/${truckId}`;
+    return this.http.delete<{}>(url);
+  }
+
   getRating(truckId: number, userId: number): Observable<TruckUserRatingDto> {
     console.log('getRating');
     const url = `${environment.apiPath}/truck/rating?truckId=${truckId}&userId=${userId}`;
     return this.http.get<TruckUserRatingDto>(url);
   }
 
-  setRating(dto: TruckUserRatingDto) {
+  setRating(dto: TruckUserRatingDto): Observable<{}> {
     console.log(`setRating:${dto.truckId}/${dto.userId}/${dto.ratingId}`);
     const url = `${environment.apiPath}/truck/rating`;
     return this.http.post<{}>(url, dto);
   }
 
-  deleteRating(truckId: number, userId: number) {
+  deleteRating(truckId: number, userId: number): Observable<{}> {
     console.log(`deleteRating:${truckId}/${userId}`);
     const url = `${environment.apiPath}/truck/rating?truckId=${truckId}&userId=${userId}`;
     return this.http.delete<{}>(url);

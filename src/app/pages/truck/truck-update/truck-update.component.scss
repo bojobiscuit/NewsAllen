@@ -4,9 +4,6 @@
     text-align: center;
 }
 
-#formAreaWrapper {
-}
-
 #formArea {
     border: 2px solid #cccccc;
     background: #ffffff;
@@ -14,6 +11,10 @@
     text-align: left;
 }
 
-.formField {
+.formField:not(:last-child) {
     margin-bottom: 20px;
+}
+
+.deleteButton {
+    background: #af4c4c;
 }
