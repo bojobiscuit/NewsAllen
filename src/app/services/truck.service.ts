@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TruckHighlightPage, TruckUserRatingDto } from '../dtos/truck-dtos';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { TruckScheduled } from '../models/truck/truck-scheduled';
 import { TruckListItem } from '../models/truck/truck-list-item';
 import { TruckDetails } from '../models/truck/truck-details';
@@ -72,5 +72,11 @@ export class TruckService {
     console.log(`deleteRating:${truckId}/${userId}`);
     const url = `${environment.apiPath}/truck/rating?truckId=${truckId}&userId=${userId}`;
     return this.http.delete<{}>(url);
+  }
+
+  uploadTruckImage(truckId: number, formData: FormData): Observable<HttpEvent<FormData>> {
+    console.log(`uploadTruckImage`);
+    const url = `${environment.apiPath}/truck/truckImage/${truckId}`;
+    return this.http.post<FormData>(url, formData, { reportProgress: true, observe: 'events' });
   }
 }

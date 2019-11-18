@@ -4,7 +4,11 @@
     text-align: center;
 }
 
-#formArea {
+.formAreaWrapper:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.formArea {
     border: 2px solid #cccccc;
     background: #ffffff;
     padding: 20px;
@@ -17,4 +21,9 @@
 
 .deleteButton {
     background: #af4c4c;
+}
+
+.uploadButton {
+    background: #666666;
+    margin-top: 10px;
 }

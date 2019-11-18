@@ -1,8 +1,8 @@
 <div id="truckUpdateContainer" *ngIf="truck">
   <h2>{{isNewTruck ? "Add" : "Edit"}} Truck</h2>
 
-  <div id="formAreaWrapper">
-    <div id="formArea">
+  <div class="formAreaWrapper">
+    <div class="formArea">
       <div class="formField">
         <label for="fname">Truck Name</label>
         <input type="text" name="name" placeholder="Name" [(ngModel)]="truck.name">
@@ -16,6 +16,24 @@
       </div>
       <div class="formField" *ngIf="!isNewTruck">
         <input type="submit" class="deleteButton" (click)="deleteTruck()" value="Delete" />
+      </div>
+    </div>
+  </div>
+
+  <div class="formAreaWrapper" *ngIf="!isNewTruck">
+    <div class="formArea">
+      <div class="formField">
+        <label for="fname">Truck Image</label>
+        <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
+        <button type="button" class="uploadButton" (click)="file.click()">Upload File</button>
+      </div>
+      <div class="formField">
+        <span class="upload" *ngIf="progress > 0">
+          {{progress}}%
+        </span>
+        <span class="upload" *ngIf="message">
+          {{message}}
+        </span>
       </div>
     </div>
   </div>

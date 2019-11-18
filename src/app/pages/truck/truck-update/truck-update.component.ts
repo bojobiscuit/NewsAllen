@@ -3,6 +3,7 @@ import { TruckDetails } from 'src/app/models/truck/truck-details';
 import { TruckService } from 'src/app/services/truck.service';
 import { ActivatedRoute } from '@angular/router';
 import { NavService } from 'src/app/services/nav.service';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-truck-update',
@@ -13,8 +14,10 @@ export class TruckUpdateComponent implements OnInit {
 
   truck: TruckDetails;
   isNewTruck: boolean = true;
+  progress: number;
+  message: string;
 
-  constructor(private truckService: TruckService, private navService: NavService, private route: ActivatedRoute) { }
+  constructor(private truckService: TruckService, private navService: NavService, private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
@@ -82,5 +85,22 @@ export class TruckUpdateComponent implements OnInit {
         }
       );
     }
+  }
+
+  uploadFile = (files) => {
+    if (files.length === 0)
+      return;
+
+    let fileToUpload = <File>files[0];
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    this.truckService.uploadTruckImage(this.truck.id, formData).subscribe(
+      event => {
+        if (event.type === HttpEventType.UploadProgress)
+          this.progress = Math.round(100 * event.loaded / event.total);
+        else if (event.type === HttpEventType.Response) {
+          this.message = 'Upload success.';
+        }
+      });
   }
 }

@@ -5,7 +5,8 @@
         <h3>TODAY'S TRUCK</h3>
       </div>
       <a [routerLink]="['/truck/', truckToday.id]">
-        <div class="truckImage" [ngStyle]="{'background-image': 'url(/assets/img/trucks/' + truckToday.id + '.jpg)'}">
+        <!-- <div class="truckImage" [ngStyle]="{'background-image': 'url(/assets/img/trucks/' + truckToday.id + '.jpg)'}"> -->
+          <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckToday.imagePath + ')'}">
           <div class="truckTitle">{{truckToday.name}}</div>
         </div>
       </a>
@@ -17,7 +18,7 @@
         <h3>{{truckNextDay}}</h3>
       </div>
       <a [routerLink]="['/truck/', truckNext.id]">
-        <div class="truckImage" [ngStyle]="{'background-image': 'url(/assets/img/trucks/' + truckNext.id + '.jpg)'}">
+        <div class="truckImage" [ngStyle]="{'background-image': 'url(' + truckNext.imagePath + ')'}">
           <div class="truckTitle">{{truckNext.name}}</div>
         </div>
       </a>
