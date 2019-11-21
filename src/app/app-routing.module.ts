@@ -10,7 +10,6 @@ import { TruckUpdateComponent } from './pages/truck/truck-update/truck-update.co
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'news', component: NewsComponent },
   { path: 'map', component: MapComponent },
   { path: 'truck', component: TruckHighlightComponent },
   { path: 'truck/list', component: TruckListComponent },
