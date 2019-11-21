@@ -13,7 +13,10 @@ export class TruckHighlightComponent implements OnInit {
 
   truckToday: TruckHighlight;
   truckNext: TruckHighlight;
+  truckTodayDay: string;
   truckNextDay: string;
+  isTodayScheduled: boolean = true;
+
 
   constructor(private truckService: TruckService, private navService: NavService) { }
 
@@ -27,12 +30,21 @@ export class TruckHighlightComponent implements OnInit {
       (dto) => {
         this.truckToday = dto.todayTruck;
         this.truckNext = dto.nextTruck;
-        this.truckToday.date = new Date(this.truckToday.date);
-        this.truckNext.date = new Date(this.truckNext.date);
+
+        if (this.truckToday)
+          this.truckToday.date = new Date(this.truckToday.date);
+        else
+          this.isTodayScheduled = false;
+
+        if (this.truckNext)
+          this.truckNext.date = new Date(this.truckNext.date);
       },
       err => console.error(err),
       () => {
-        this.truckNextDay = All.getDateText(this.truckNext.date);
+        if (this.truckToday)
+          this.truckTodayDay = All.getDateText(this.truckToday.date);
+        if (this.truckNext)
+          this.truckNextDay = All.getDateText(this.truckNext.date);
       }
     );
   }

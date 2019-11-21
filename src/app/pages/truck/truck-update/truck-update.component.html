@@ -25,9 +25,12 @@
       <div class="formField">
         <label for="fname">Truck Image</label>
         <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
-        <button type="button" class="uploadButton" (click)="file.click()">Upload File</button>
+        <button type="button" class="formButton uploadButton" (click)="file.click()">Upload</button>
       </div>
       <div class="formField">
+        <button type="button" class="formButton deleteButton" (click)="deleteTruckImage()">Delete</button>
+      </div>
+      <div class="formField" *ngIf="progress > 0 || message">
         <span class="upload" *ngIf="progress > 0">
           {{progress}}%
         </span>

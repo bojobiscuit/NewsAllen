@@ -2,24 +2,30 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
 
-# TODO
+# Done
 
-- Placeholder truck image
 - Upload truck image
-- Upload truck related images
-- Database
-- Soft Delete truck
-- Schedule Trucks
-- Break schedule into weeks
+- Placeholder truck image
 - Today's Truck text if not today
 - Highlight page if nothing scheduled
+- Delete Truck Image
+
+# TODO
+
+- Schedule Trucks
+- Database
+
+# Nice to haves
+
+- Upload truck related images
+- Soft Delete truck
+- Break schedule into weeks
 - News Page
 - View Article
 - Edit/Add Article
-- Delete/Soft Delete Article
+- Delete Delete Article
 - Add/Delete Comments
 - List Articles
-- Home Page
 
 # Angular stuff
 

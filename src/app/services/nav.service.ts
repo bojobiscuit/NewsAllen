@@ -36,6 +36,7 @@ export class NavService {
       if (element)
         args.push(element);
     });
+    console.log(args);
     this.router.navigate(args);
   }
 

@@ -1,8 +1,11 @@
 <div class="row">
   <div class="leftCol">
+    <div class="foodToday" *ngIf="!isTodayScheduled">
+      <h3>No trucks are currently scheduled</h3>
+    </div>
     <div class="foodToday" *ngIf="truckToday">
       <div>
-        <h3>TODAY'S TRUCK</h3>
+        <h3>{{truckTodayDay | uppercase}}</h3>
       </div>
       <a [routerLink]="['/truck/', truckToday.id]">
         <!-- <div class="truckImage" [ngStyle]="{'background-image': 'url(/assets/img/trucks/' + truckToday.id + '.jpg)'}"> -->

@@ -3,7 +3,6 @@
     <div id="topNav-left">
       <a id="topNav-logo" [routerLink]="['/']">NEWS ALLEN</a>
       <div id="topNav-links">
-        <a href="" [routerLink]="['/news']" routerLinkActive="active">news</a>
         <a href="" [routerLink]="['/map']" routerLinkActive="active">map</a>
         <a href="truck" [routerLink]="['/truck']" routerLinkActive="active">truck</a>
       </div>
@@ -17,7 +16,6 @@
     </div>
   </div>
   <div id="topNav-dropdown-links" *ngIf="isExpanded">
-    <a href="" [routerLink]="['/news']" routerLinkActive="active" (click)="hideExpand()">news</a>
     <a href="" [routerLink]="['/map']" routerLinkActive="active" (click)="hideExpand()">map</a>
     <a href="truck" [routerLink]="['/truck']" routerLinkActive="active" (click)="hideExpand()">truck</a>
   </div>

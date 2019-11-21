@@ -77,10 +77,10 @@ export class TruckUpdateComponent implements OnInit {
       this.truckService.deleteTruck(this.truck.id).subscribe(
         () => {
           console.log("truck added");
-          this.navService.navigateWithMessage("created", "The truck was deleted successfully.", "/truck/list");
+          this.navService.navigateWithMessage("deleted", "The truck was deleted successfully.", "/truck/list");
         },
         err => {
-          console.error("truck delete error: " + err);
+          console.error(err);
           this.navService.navigateWithError("/truck/list");
         }
       );
@@ -100,7 +100,21 @@ export class TruckUpdateComponent implements OnInit {
           this.progress = Math.round(100 * event.loaded / event.total);
         else if (event.type === HttpEventType.Response) {
           this.message = 'Upload success.';
+          this.navService.navigateWithMessage("uploaded", "Image added successfully to truck.", `/truck/${this.truck.id}`);
         }
       });
+  }
+
+  deleteTruckImage() {
+    this.truckService.deleteTruckImage(this.truck.id).subscribe(
+      () => {
+        console.log("truck image deleted");
+        this.navService.navigateWithMessage("deleted", "The truck image was deleted successfully.", `/truck/${this.truck.id}`);
+      },
+      err => {
+        console.error(err);
+        this.navService.navigateWithError("/truck/list");
+      }
+    );
   }
 }

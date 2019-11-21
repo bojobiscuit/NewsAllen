@@ -9,7 +9,6 @@ import { LayoutComponent } from './layout/layout.component';
 import { NavbarComponent } from './parts/navbar/navbar.component';
 import { FooterComponent } from './parts/footer/footer.component';
 import { MapComponent } from './pages/map/map.component';
-import { NewsComponent } from './pages/news/news.component';
 import { TruckScheduleComponent } from './pages/truck/truck-schedule/truck-schedule.component';
 import { TruckComponent } from './pages/truck/truck-info/truck-info.component';
 import { TruckListComponent } from './pages/truck/truck-list/truck-list.component';
@@ -25,7 +24,6 @@ import { AlertComponent } from './parts/alert/alert.component';
     FooterComponent,
     TruckHighlightComponent,
     MapComponent,
-    NewsComponent,
     TruckScheduleComponent,
     TruckComponent,
     TruckListComponent,
@@ -37,7 +35,7 @@ import { AlertComponent } from './parts/alert/alert.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule
-  ],
+  ], 
   providers: [],
   bootstrap: [LayoutComponent]
 })

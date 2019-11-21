@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { NewsComponent } from './pages/news/news.component';
 import { MapComponent } from './pages/map/map.component';
 import { TruckComponent } from './pages/truck/truck-info/truck-info.component';
 import { TruckListComponent } from './pages/truck/truck-list/truck-list.component';

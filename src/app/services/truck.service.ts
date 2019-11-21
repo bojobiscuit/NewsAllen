@@ -79,4 +79,10 @@ export class TruckService {
     const url = `${environment.apiPath}/truck/truckImage/${truckId}`;
     return this.http.post<FormData>(url, formData, { reportProgress: true, observe: 'events' });
   }
+
+  deleteTruckImage(truckId: number): Observable<{}> {
+    console.log(`deleteTruck:${truckId}`);
+    const url = `${environment.apiPath}/truck/truckImage/${truckId}`;
+    return this.http.delete<{}>(url);
+  }
 }
