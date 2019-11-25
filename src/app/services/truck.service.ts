@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { TruckHighlightPage, TruckUserRatingDto } from '../dtos/truck-dtos';
+import { TruckHighlightPage, TruckUserRatingDto, AddTruckScheduleDto } from '../dtos/truck-dtos';
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { TruckScheduled } from '../models/truck/truck-scheduled';
 import { TruckListItem } from '../models/truck/truck-list-item';
@@ -84,5 +84,23 @@ export class TruckService {
     console.log(`deleteTruck:${truckId}`);
     const url = `${environment.apiPath}/truck/truckImage/${truckId}`;
     return this.http.delete<{}>(url);
+  }
+
+  addTruckSchedule(dto: AddTruckScheduleDto): Observable<{}> {
+    console.log(`addTruckSchedule`);
+    const url = `${environment.apiPath}/truck/schedule`;
+    return this.http.post<{}>(url, dto);
+  }
+
+  removeTruckSchedule(scheduleId: number): Observable<{}> {
+    console.log(`removeTruckSchedule:${scheduleId}`);
+    const url = `${environment.apiPath}/truck/schedule/${scheduleId}`;
+    return this.http.delete<{}>(url);
+  }
+
+  getScheduleForTruck(truckId: number): Observable<TruckScheduled[]> {
+    console.log(`getScheduleForTruck:${truckId}`);
+    const url = `${environment.apiPath}/truck/schedule/${truckId}`;
+    return this.http.get<TruckScheduled[]>(url);
   }
 }

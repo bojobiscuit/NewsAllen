@@ -20,7 +20,8 @@
           </div>
           <div class="options">
             <a href="{{truck.webUrl}}"><i class="fas fa-globe-americas"></i><span>website</span></a>
-            <a class="ratingSlideLink" (click)="showRatingsSlide()"><i class="far fa-star"></i>rate truck</a>
+            <a class="ratingSlideLink" (click)="showRatingsSlide()"><i class="far fa-star"></i>rate</a>
+            <a class="ratingSlideLink" (click)="showScheduleSlide()"><i class="far fa-calendar"></i>schedule</a>
             <a [routerLink]="['/truck/update', truck.id]"><i class="far fa-edit"></i>edit truck</a>
           </div>
         </div>
@@ -40,6 +41,22 @@
           <div class="options">
             <a class="ratingSlideLink" (click)="removeRating()" *ngIf="rating">remove rating</a>
             <a class="ratingSlideLink" (click)="showDetailsSlide()">cancel</a>
+          </div>
+        </div>
+        <div *ngIf="detailsSlide == 'schedule'">
+          <div *ngIf="truck.scheduleDates && truck.scheduleDates.length > 0" style="margin-bottom: 30px;">
+            <h3>Upcoming Visits</h3>
+            <div *ngFor="let schedule of truck.scheduleDates">
+              {{schedule.date | date: 'MMM d' : 'UTC'}}
+            </div>
+          </div>
+          <div>
+            <h3>Schedule this Truck</h3>
+            <input type="text" mwlFlatpickr [(ngModel)]="selectedDate" [altInput]="true" [convertModelValue]="true">
+            <div class="options">
+              <a class="ratingSlideLink" (click)="saveSchedule()" *ngIf="selectedDate" style="margin-bottom: 30px;">schedule truck</a>
+              <a class="ratingSlideLink" (click)="showDetailsSlide()">cancel</a>
+            </div>
           </div>
         </div>
       </div>

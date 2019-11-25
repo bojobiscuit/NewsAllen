@@ -2,7 +2,7 @@
 <div class="truckScheduleWrapper">
   <div class="truckSchedule">
     <a class="truckScheduleRow" *ngFor="let truck of trucks" [routerLink]="['/truck/', truck.id]">
-      <div class="truckDate">{{getDateOutput(truck)}}</div>
+      <div class="truckDate">{{truck.date | date: 'MMM d' : 'UTC'}}</div>
       <div class="truckName">{{truck.name}}</div>
     </a>
   </div>

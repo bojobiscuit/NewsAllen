@@ -3,7 +3,7 @@ import { TruckDetails } from 'src/app/models/truck/truck-details';
 import { TruckService } from 'src/app/services/truck.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-import { TruckUserRatingDto, AlertDto } from 'src/app/dtos/truck-dtos';
+import { TruckUserRatingDto, AlertDto, AddTruckScheduleDto } from 'src/app/dtos/truck-dtos';
 import { NavService } from 'src/app/services/nav.service';
 
 @Component({
@@ -17,6 +17,7 @@ export class TruckComponent implements OnInit {
   rating: TruckUserRatingDto;
   detailsSlide: string = null;
   alert: AlertDto;
+  selectedDate: Date;
 
   constructor(private truckService: TruckService, private userService: UserService, private navService: NavService, private route: ActivatedRoute) { }
 
@@ -59,12 +60,19 @@ export class TruckComponent implements OnInit {
 
   showDetailsSlide(hideAlerts: boolean = true) {
     this.detailsSlide = null;
+    this.selectedDate = null;
     if (hideAlerts)
       this.alert.reset();
   }
 
   showRatingsSlide(hideAlerts: boolean = true) {
     this.detailsSlide = "ratings";
+    if (hideAlerts)
+      this.alert.reset();
+  }
+
+  showScheduleSlide(hideAlerts: boolean = true) {
+    this.detailsSlide = "schedule";
     if (hideAlerts)
       this.alert.reset();
   }
@@ -110,6 +118,29 @@ export class TruckComponent implements OnInit {
         console.error(err);
       },
       () => {
+        this.showDetailsSlide(false);
+      }
+    );
+  }
+
+  saveSchedule() {
+    if (!this.selectedDate)
+      return;
+
+    var dto: AddTruckScheduleDto = new AddTruckScheduleDto();
+    dto.date = new Date(this.selectedDate);
+    dto.truckId = this.truck.id;
+    this.truckService.addTruckSchedule(dto).subscribe(
+      () => {
+        console.log("add schedule");
+        this.alert.setAlert("Truck was scheduled", "Scheduled");
+      },
+      err => {
+        this.alert.setError("There was an error scheduling the truck");
+        console.error(err);
+      },
+      () => {
+        this.selectedDate = null;
         this.showDetailsSlide(false);
       }
     );

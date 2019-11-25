@@ -11,6 +11,16 @@ export class TruckUserRatingDto {
     ratingId: number;
 }
 
+export class AddTruckScheduleDto {
+    truckId: number;
+    date: Date;
+}
+
+export class ScheduleDate {
+    id: number;
+    date: Date;
+}
+
 export class AlertDto {
     message: string;
     status: string;

@@ -1,3 +1,5 @@
+import { ScheduleDate } from 'src/app/dtos/truck-dtos';
+
 export class TruckDetails {
     id: number;
     name: string;
@@ -6,4 +8,5 @@ export class TruckDetails {
     loveRatings: number;
     likeRatings: number;
     mehRatings: number;
+    scheduleDates: ScheduleDate[];
 }

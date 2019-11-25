@@ -15,6 +15,7 @@ import { TruckListComponent } from './pages/truck/truck-list/truck-list.componen
 import { TruckHighlightComponent } from './pages/truck/truck-highlight/truck-highlight.component';
 import { TruckUpdateComponent } from './pages/truck/truck-update/truck-update.component';
 import { AlertComponent } from './parts/alert/alert.component';
+import { FlatpickrModule } from 'angularx-flatpickr';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AlertComponent } from './parts/alert/alert.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FlatpickrModule.forRoot(),
   ], 
   providers: [],
   bootstrap: [LayoutComponent]

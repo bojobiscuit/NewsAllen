@@ -24,6 +24,9 @@ export class TruckScheduleComponent implements OnInit {
     this.truckService.getScheduleList().subscribe(
       (dto) => {
         this.trucks = dto;
+        this.trucks.forEach(truck => {
+          truck.date = new Date(truck.date);
+        });
       },
       err => console.error(err),
     );

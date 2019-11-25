@@ -28,9 +28,12 @@
             ],
             "styles": [
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/flatpickr/dist/flatpickr.min.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/js-datepicker/dist/datepicker.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -86,6 +89,7 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/flatpickr/dist/flatpickr.min.css",
               "src/styles.scss"
             ],
             "scripts": [],
