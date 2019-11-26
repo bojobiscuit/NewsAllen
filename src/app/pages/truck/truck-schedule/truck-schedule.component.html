@@ -1,9 +1,24 @@
-<h2>Truck Schedule</h2>
-<div class="truckScheduleWrapper">
-  <div class="truckSchedule">
-    <a class="truckScheduleRow" *ngFor="let truck of trucks" [routerLink]="['/truck/', truck.id]">
-      <div class="truckDate">{{truck.date | date: 'MMM d' : 'UTC'}}</div>
-      <div class="truckName">{{truck.name}}</div>
-    </a>
+<h2 (click)="test()">Truck Schedule</h2>
+
+<div *ngIf="truckSchedulePage">
+
+  <div class="truckScheduleWrapper" *ngIf="truckSchedulePage.currentWeekTrucks">
+    <div class="truckSchedule">
+      <h3>Current Week</h3>
+      <a class="truckScheduleRow" *ngFor="let truck of truckSchedulePage.currentWeekTrucks" [routerLink]="['/truck/', truck.id]">
+        <div class="truckDate">{{truck.date | date: 'MMM d' : 'UTC'}}</div>
+        <div class="truckName">{{truck.name}}</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="truckScheduleWrapper" *ngIf="truckSchedulePage.futureTrucks">
+    <div class="truckSchedule">
+      <h3>Coming Up</h3>
+      <a class="truckScheduleRow" *ngFor="let truck of truckSchedulePage.futureTrucks" [routerLink]="['/truck/', truck.id]">
+        <div class="truckDate">{{truck.date | date: 'MMM d' : 'UTC'}}</div>
+        <div class="truckName">{{truck.name}}</div>
+      </a>
+    </div>
   </div>
 </div>

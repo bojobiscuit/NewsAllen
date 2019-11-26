@@ -19,10 +19,26 @@
             </div>
           </div>
           <div class="options">
-            <a href="{{truck.webUrl}}"><i class="fas fa-globe-americas"></i><span>website</span></a>
-            <a class="ratingSlideLink" (click)="showRatingsSlide()"><i class="far fa-star"></i>rate</a>
-            <a class="ratingSlideLink" (click)="showScheduleSlide()"><i class="far fa-calendar"></i>schedule</a>
-            <a [routerLink]="['/truck/update', truck.id]"><i class="far fa-edit"></i>edit truck</a>
+            <a href="{{truck.webUrl}}" target="_blank">
+              <div>
+                <i class="fas fa-globe-americas"></i><span>website</span>
+              </div>
+            </a>
+            <a class="ratingSlideLink" (click)="showRatingsSlide()">
+              <div>
+                <i class="far fa-star"></i><span>rate</span>
+              </div>
+            </a>
+            <a class="ratingSlideLink" (click)="showScheduleSlide()">
+              <div>
+                <i class="far fa-calendar"></i><span>schedule</span>
+              </div>
+            </a>
+            <a [routerLink]="['/truck/update', truck.id]">
+              <div>
+                <i class="far fa-edit"></i><span>edit</span>
+              </div>
+            </a>
           </div>
         </div>
         <div *ngIf="detailsSlide == 'ratings'">
@@ -39,15 +55,15 @@
             </div>
           </div>
           <div class="options">
-            <a class="ratingSlideLink" (click)="removeRating()" *ngIf="rating">remove rating</a>
+            <a class="ratingSlideLink" (click)="removeRating()" *ngIf="rating">erase rating</a>
             <a class="ratingSlideLink" (click)="showDetailsSlide()">cancel</a>
           </div>
         </div>
         <div *ngIf="detailsSlide == 'schedule'">
-          <div *ngIf="truck.scheduleDates && truck.scheduleDates.length > 0" style="margin-bottom: 30px;">
+          <div *ngIf="truck.scheduleDates && truck.scheduleDates.length > 0" style="margin-bottom: 30px;" class="truckDates">
             <h3>Upcoming Visits</h3>
             <div *ngFor="let schedule of truck.scheduleDates">
-              {{schedule.date | date: 'MMM d' : 'UTC'}}
+              {{schedule.date | date: 'MMM d' : 'UTC'}} <i class="far fa-calendar-times" (click)="deleteTruckSchedule(schedule.id)"></i>
             </div>
           </div>
           <div>

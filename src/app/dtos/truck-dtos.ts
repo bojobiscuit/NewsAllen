@@ -1,8 +1,14 @@
 import { TruckHighlight } from '../models/truck/truck-highlight';
+import { TruckScheduled } from '../models/truck/truck-scheduled';
 
 export class TruckHighlightPage {
     todayTruck: TruckHighlight;
     nextTruck: TruckHighlight;
+}
+
+export class TruckSchedulePage {
+    currentWeekTrucks: TruckScheduled[];
+    futureTrucks: TruckScheduled[];
 }
 
 export class TruckUserRatingDto {

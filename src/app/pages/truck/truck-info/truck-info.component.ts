@@ -134,6 +134,7 @@ export class TruckComponent implements OnInit {
       () => {
         console.log("add schedule");
         this.alert.setAlert("Truck was scheduled", "Scheduled");
+        this.GetTruck(this.truck.id);
       },
       err => {
         this.alert.setError("There was an error scheduling the truck");
@@ -141,6 +142,23 @@ export class TruckComponent implements OnInit {
       },
       () => {
         this.selectedDate = null;
+        this.showDetailsSlide(false);
+      }
+    );
+  }
+
+  deleteTruckSchedule(scheduleId: number) {
+    this.truckService.removeTruckSchedule(scheduleId).subscribe(
+      () => {
+        console.log("remove truck schedule: " + scheduleId);
+        this.alert.setAlert("Truck was unscheduled", "Unscheduled");
+        this.GetTruck(this.truck.id);
+      },
+      err => {
+        this.alert.setError("There was an error unscheduling the truck");
+        console.error(err);
+      },
+      () => {
         this.showDetailsSlide(false);
       }
     );

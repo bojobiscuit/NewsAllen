@@ -81,17 +81,35 @@
   width: 100%;
 }
 
-.options {
-  display: flex;
-  flex-direction: column;
+.options > a {
+  width: 50%;
+  display: inline-block;
+  background: #ffffff;
+  white-space: nowrap;
+  margin-top: 10px;
+  padding: 10px 0;
 }
 
-.options a:not(:last-child) {
-  margin-bottom: 10px;
+.options > a:first-child {
+  margin-top: 0px;
+}
+
+.options > a:hover {
+  background: #f3f3f3;
+}
+
+.options div {
+  width: 100%;
 }
 
 .ratingSlideLink {
   cursor: pointer;
+}
+
+.truckDates i {
+  margin-left: 10px;
+  cursor: pointer;
+  color: red;
 }
 
 @media only screen and (max-width: 768px) {
@@ -101,6 +119,11 @@
 
   .row > div:not(:last-child) {
     margin-bottom: 20px;
+  }
+
+  .options > a {
+    width: 100%;
+    margin-top: 0px;
   }
 
   .leftCol {

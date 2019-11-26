@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { TruckHighlightPage, TruckUserRatingDto, AddTruckScheduleDto } from '../dtos/truck-dtos';
+import { TruckHighlightPage, TruckUserRatingDto, AddTruckScheduleDto, TruckSchedulePage } from '../dtos/truck-dtos';
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { TruckScheduled } from '../models/truck/truck-scheduled';
 import { TruckListItem } from '../models/truck/truck-list-item';
@@ -26,10 +26,10 @@ export class TruckService {
     return this.http.get<TruckDetails>(url);
   }
 
-  getScheduleList(): Observable<TruckScheduled[]> {
-    console.log('getSchedulesList');
+  getSchedulePage(): Observable<TruckSchedulePage> {
+    console.log('getSchedulePage');
     const url = `${environment.apiPath}/truck/schedule`;
-    return this.http.get<TruckScheduled[]>(url);
+    return this.http.get<TruckSchedulePage>(url);
   }
 
   getTruckList(): Observable<TruckListItem[]> {
